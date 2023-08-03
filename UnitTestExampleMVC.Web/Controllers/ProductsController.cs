@@ -30,7 +30,7 @@ namespace UnitTestExampleMVC.Web.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Index");
             }
 
             var product = await _repository.GetById((int)id);
@@ -60,7 +60,7 @@ namespace UnitTestExampleMVC.Web.Controllers
                 await _repository.Create(product);
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(product); // boş geldiyse product'ı olduğu gibi geri dönder, böylelikle doldurduğu yerler boş gözükmez
         }
 
         // GET: Products/Edit/5
@@ -68,7 +68,7 @@ namespace UnitTestExampleMVC.Web.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("Index");
             }
 
             var product = await _repository.GetById((int)id);
