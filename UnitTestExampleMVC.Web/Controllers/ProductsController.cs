@@ -126,7 +126,7 @@ namespace UnitTestExampleMVC.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductExists(int id)
+        public bool ProductExists(int id)
         {
             var product = _repository.GetById(id).Result;
 
