@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using UnitTestExampleMVC.Web.Helpers;
 using UnitTestExampleMVC.Web.Models;
 using UnitTestExampleMVC.Web.Repository;
 
@@ -20,6 +21,12 @@ namespace UnitTestExampleMVC.Web.Controllers
         public ProductsApiController(IRepository<Product> repository)
         {
             _repository = repository;
+        }
+
+        [HttpGet("{a}/{b}")]
+        public IActionResult Add(int a, int b)
+        {
+            return Ok(new Helpers.Helper().Add(a, b));
         }
 
         // GET: api/ProductsApi
