@@ -137,7 +137,7 @@ namespace UnitTestExampleMVC.Test
 
             var resultNotFound = await _controller.DeleteProduct(productId);
 
-            Assert.IsType<NotFoundResult>(resultNotFound.Result);
+            Assert.IsType<NotFoundResult>(resultNotFound);
         }
 
         [Theory]
@@ -154,7 +154,7 @@ namespace UnitTestExampleMVC.Test
 
             _mockRepo.Verify(x => x.Delete(product), Times.Once);
 
-            Assert.IsType<NoContentResult>(noContentResult.Result);
+            Assert.IsType<NoContentResult>(noContentResult);
         }
     }
 }
